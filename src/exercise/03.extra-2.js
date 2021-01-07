@@ -1,5 +1,5 @@
 // useContext: Caching response data in context
-// 💯 caching in a context provider (exercise)
+// 💯 caching in a context provider
 // http://localhost:3000/isolated/exercise/03.extra-2.js
 
 // you can edit this here and look at the isolated page or you can copy/paste
