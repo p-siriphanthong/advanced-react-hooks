@@ -6,9 +6,9 @@ import * as React from 'react'
 function MessagesDisplay({messages}) {
   const containerRef = React.useRef()
   // 🐨 replace useEffect with useLayoutEffect
-  React.useEffect(() => {
+  React.useLayoutEffect(() => {
     containerRef.current.scrollTop = containerRef.current.scrollHeight
-  })
+  }, [messages])
 
   return (
     <div ref={containerRef} role="log">
