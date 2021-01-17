@@ -5,6 +5,7 @@
 import * as React from 'react'
 
 function countReducer(state, newState) {
+  // 💬 destructor old state: `{...state, ...newState}`
   return newState
 }
 

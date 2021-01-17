@@ -10,6 +10,7 @@ function countReducer(state, action) {
       return {...state, count: state.count + action.step}
     }
     default: {
+      // 💬 maybe throw an error
       return state
     }
   }

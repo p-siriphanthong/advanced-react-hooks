@@ -37,6 +37,7 @@ function useAsync(
   initialState = {status: 'idle'},
   dependencies = [],
 ) {
+  // 💬 combine `initialState` with default value: `{status: 'idle', data: null, error: null, ...initialState}`
   const [state, dispatch] = React.useReducer(asyncReducer, initialState)
 
   React.useEffect(() => {

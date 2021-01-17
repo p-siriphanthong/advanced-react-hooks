@@ -16,6 +16,7 @@ import {useAsync} from '../utils'
 const PokemonCacheContext = React.createContext()
 
 // 🐨 create a PokemonCacheProvider function
+// 💬 move to bottom of `pokemonCacheReducer`
 function PokemonCacheProvider(props) {
   // 🐨 useReducer with pokemonCacheReducer in your PokemonCacheProvider
   // 💰 you can grab the one that's in PokemonInfo
@@ -43,6 +44,7 @@ function PokemonInfo({pokemonName}) {
   // const [cache, dispatch] = React.useReducer(pokemonCacheReducer, {})
 
   // 🐨 get the cache and dispatch from useContext with PokemonCacheContext
+  // 💬 using context value from `usePokemonCache` hooks
   const [cache, dispatch] = React.useContext(PokemonCacheContext)
 
   const {data: pokemon, status, error, run, setData} = useAsync()
@@ -60,7 +62,7 @@ function PokemonInfo({pokemonName}) {
         }),
       )
     }
-  }, [cache, pokemonName, run, setData])
+  }, [cache, pokemonName, run, setData]) // 💬 add `dispatch` into the dependencies array
 
   if (status === 'idle') {
     return 'Submit a pokemon'
@@ -75,6 +77,7 @@ function PokemonInfo({pokemonName}) {
 
 function PreviousPokemon({onSelect}) {
   // 🐨 get the cache from useContext with PokemonCacheContext
+  // 💬 using context value from `usePokemonCache` hooks
   const [cache] = React.useContext(PokemonCacheContext)
   return (
     <div>

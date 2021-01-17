@@ -28,9 +28,11 @@ function asyncReducer(state, action) {
   }
 }
 
+// 💬 create `useSafeDispatch` hooks and move `useRef` inside. It will return `void 0` if unmounted, otherwise return `dispatch` function
+
 function useAsync(initialState = {status: 'idle'}) {
   const [state, dispatch] = React.useReducer(asyncReducer, initialState)
-  const ref = React.useRef(false)
+  const ref = React.useRef(false) // 💬 change variable name to `mountedRef`
 
   const run = React.useCallback(promise => {
     dispatch({type: 'pending'})
@@ -46,6 +48,7 @@ function useAsync(initialState = {status: 'idle'}) {
     )
   }, [])
 
+  // 💬 maybe using `React.useLayoutEffect` instead
   React.useEffect(() => {
     ref.current = true
     return () => (ref.current = false)

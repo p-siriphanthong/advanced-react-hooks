@@ -9,7 +9,7 @@ function useMedia(query, initialState = false) {
 
   React.useDebugValue(
     {query, state},
-    ({query, state}) => `\`${query}\` => ${state}`,
+    ({query, state}) => `\`${query}\` => ${state}`, // 💬 maybe create a function `formatDebugValue`
   )
 
   React.useEffect(() => {

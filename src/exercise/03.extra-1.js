@@ -3,9 +3,11 @@
 // http://localhost:3000/isolated/exercise/03.extra-1.js
 
 import * as React from 'react'
+// 💬 maybe import the context from another file: `import {CountProvider, useCount} from '../context/count-context'`
 
 const CountContext = React.createContext()
 
+// 💬 move to bottom of `CountProvider`
 function useCount() {
   const context = React.useContext(CountContext)
   if (!context) throw new Error('useCount must be used within a CountProvider')

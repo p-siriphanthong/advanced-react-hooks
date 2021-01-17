@@ -2,9 +2,6 @@
 // 💯 caching in a context provider
 // http://localhost:3000/isolated/final/03.extra-2.js
 
-// you can edit this here and look at the isolated page or you can copy/paste
-// this in the regular exercise file.
-
 import * as React from 'react'
 import {useAsync} from '../utils'
 import {
